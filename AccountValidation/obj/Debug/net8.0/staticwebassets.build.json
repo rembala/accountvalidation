@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "dvrppjNolBA94MCkRBUb8FoY+TPKDDyW9okhiQi/Grk=",
-  "Source": "AccountValidation",
-  "BasePath": "_content/AccountValidation",
+  "Hash": "4j1iYmxwzG7jH3Njki/aG+plGCcDSa4uNOc+VbuptHs=",
+  "Source": "AccountPresentationLayer",
+  "BasePath": "_content/AccountPresentationLayer",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

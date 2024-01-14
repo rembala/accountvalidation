@@ -1,0 +1,13 @@
+C:\Users\artur\source\repos\AccountValidation\AccountBusinessLayer\bin\Debug\net8.0\AccountBusinessLayer.deps.json
+C:\Users\artur\source\repos\AccountValidation\AccountBusinessLayer\bin\Debug\net8.0\AccountBusinessLayer.dll
+C:\Users\artur\source\repos\AccountValidation\AccountBusinessLayer\bin\Debug\net8.0\AccountBusinessLayer.pdb
+C:\Users\artur\source\repos\AccountValidation\AccountBusinessLayer\obj\Debug\net8.0\AccountBusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\artur\source\repos\AccountValidation\AccountBusinessLayer\obj\Debug\net8.0\AccountBusinessLayer.AssemblyInfoInputs.cache
+C:\Users\artur\source\repos\AccountValidation\AccountBusinessLayer\obj\Debug\net8.0\AccountBusinessLayer.AssemblyInfo.cs
+C:\Users\artur\source\repos\AccountValidation\AccountBusinessLayer\obj\Debug\net8.0\AccountBusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\artur\source\repos\AccountValidation\AccountBusinessLayer\obj\Debug\net8.0\AccountBusinessLayer.sourcelink.json
+C:\Users\artur\source\repos\AccountValidation\AccountBusinessLayer\obj\Debug\net8.0\AccountBusinessLayer.dll
+C:\Users\artur\source\repos\AccountValidation\AccountBusinessLayer\obj\Debug\net8.0\refint\AccountBusinessLayer.dll
+C:\Users\artur\source\repos\AccountValidation\AccountBusinessLayer\obj\Debug\net8.0\AccountBusinessLayer.pdb
+C:\Users\artur\source\repos\AccountValidation\AccountBusinessLayer\obj\Debug\net8.0\ref\AccountBusinessLayer.dll
+C:\Users\artur\source\repos\AccountValidation\AccountBusinessLayer\obj\Debug\net8.0\AccountBusinessLayer.csproj.AssemblyReference.cache

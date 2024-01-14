@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountValidation", "AccountValidation\AccountValidation.csproj", "{9F792E62-7A54-42CC-AF7E-8FB108157917}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountPresentationLayer", "AccountValidation\AccountPresentationLayer.csproj", "{9F792E62-7A54-42CC-AF7E-8FB108157917}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountUnitTests", "AccountUnitTests\AccountUnitTests.csproj", "{A5E297FC-B58F-41FE-8A80-3CB0CC9E5A83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountBusinessLayer", "AccountBusinessLayer\AccountBusinessLayer.csproj", "{2B0F6859-BF1F-478B-88CA-20D4AD50C95E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{9F792E62-7A54-42CC-AF7E-8FB108157917}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F792E62-7A54-42CC-AF7E-8FB108157917}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F792E62-7A54-42CC-AF7E-8FB108157917}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5E297FC-B58F-41FE-8A80-3CB0CC9E5A83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E297FC-B58F-41FE-8A80-3CB0CC9E5A83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5E297FC-B58F-41FE-8A80-3CB0CC9E5A83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5E297FC-B58F-41FE-8A80-3CB0CC9E5A83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B0F6859-BF1F-478B-88CA-20D4AD50C95E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B0F6859-BF1F-478B-88CA-20D4AD50C95E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B0F6859-BF1F-478B-88CA-20D4AD50C95E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B0F6859-BF1F-478B-88CA-20D4AD50C95E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
