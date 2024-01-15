@@ -18,11 +18,11 @@ namespace AccountPresentationLayer.Handlers
         {
 			try
 			{
-                var invalidAccounts = await _fileAccountHelper.GetBankAccountsAsync(accountRequest.AcountInformationFile);
+                var invalidAccounts = await _fileAccountHelper.GetInvalidAccountsAsync(accountRequest.AccountInformationFile);
 
                 return new AccountResponse { FileValid = !invalidAccounts.Any(), invalidLines = invalidAccounts };
             }
-			catch (Exception ex)
+			catch
 			{
 
 				throw;

@@ -2,6 +2,6 @@
 {
     public class AccountRequest
     {
-        public IFormFile AcountInformationFile { get; set; }
+        public IFormFile AccountInformationFile { get; set; }
     }
 }

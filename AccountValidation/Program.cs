@@ -1,3 +1,5 @@
+using AccountBusinessLayer.Common;
+using AccountBusinessLayer.Common.Interfaces;
 using AccountBusinessLayer.Helpers;
 using AccountBusinessLayer.Helpers.Interfaces;
 using AccountBusinessLayer.Validations;
@@ -16,9 +18,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IFileAccountHelper, FileAccountHelper>();
 builder.Services.AddScoped<IAccountHandler, AccountHandler>();
-builder.Services.AddScoped<IFileAccountMainValidator, FileAccountMainValidator>();
+builder.Services.AddScoped<IFileAccountValidator, FileAccountValidator>();
 builder.Services.AddScoped<IFileAccountNumberValidator, FileAccountNumberValidator>();
 builder.Services.AddScoped<IFileAccountNameValidator, FileAccountNameValidator>();
+builder.Services.AddScoped<IFileAccountMessageValidator, FileAccountMessageValidator>();
+builder.Services.AddScoped<IMeasureTimeSpanForAccountValidation, MeasureTimeSpanForAccountValidation>();
 
 var app = builder.Build();
 

@@ -4,6 +4,6 @@
     {
         bool IsAccountNumberCountIsCorrect(string accountNumber);
 
-        bool IsAccountInitialNumberIsValid(string accountNumber);
+        bool AccountInitialNumberIsValid(string accountNumber);
     }
 }

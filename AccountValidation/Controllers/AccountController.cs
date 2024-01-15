@@ -4,7 +4,7 @@ using AccountValidation.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AccountValidation.Controllers
-{
+{ 
     [ApiController]
     [Route("[controller]")]
     public class AccountController : ControllerBase
@@ -19,7 +19,7 @@ namespace AccountValidation.Controllers
         }
 
         [HttpPost]
-        public async Task<AccountResponse> AccountInformationValidation([FromForm] AccountRequest accountRequest)
+        public async Task<AccountResponse> ValidateAccountInformationAsync([FromForm] AccountRequest accountRequest)
         {
             var response = await _accountHandler.HandleAccountRequestAsync(accountRequest);
 

@@ -2,7 +2,7 @@
 {
     public interface IFileAccountNameValidator
     {
-        public bool FirstNameContainsOnlyAlphabeticCharacters(string accountName);
+        public bool NameContainsOnlyAlphabeticCharacters(string accountName);
 
         public bool FirstNameIsUppercase(string accountName);
     }

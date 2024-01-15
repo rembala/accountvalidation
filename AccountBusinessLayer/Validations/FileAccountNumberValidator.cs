@@ -33,7 +33,7 @@ namespace AccountBusinessLayer.Validations
             return false;
         }
 
-        public bool IsAccountInitialNumberIsValid(string accountNumber)
+        public bool AccountInitialNumberIsValid(string accountNumber)
         {
             var pattern = @"^[3,4]\w+";
 

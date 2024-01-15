@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AccountPresentationLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+256f8651af436a97ac67ec3ccd80ca0b7bb358b8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89c5401b148044ef91019eca7d64f52c3a391ff7")]
 [assembly: System.Reflection.AssemblyProductAttribute("AccountPresentationLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AccountPresentationLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

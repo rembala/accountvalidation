@@ -6,30 +6,30 @@ namespace AccountBusinessLayer.Helpers
 {
     public class FileAccountHelper : IFileAccountHelper
     {
-        private readonly IFileAccountMainValidator _fileAccountValidator;
+        private readonly IFileAccountValidator _fileAccountValidator;
 
-        public FileAccountHelper(IFileAccountMainValidator fileAccountValidator)
+        public FileAccountHelper(IFileAccountValidator fileAccountValidator)
         {
             _fileAccountValidator = fileAccountValidator;
         }
 
-        public async Task<List<string>> GetBankAccountsAsync(IFormFile file)
+        public async Task<List<string>> GetInvalidAccountsAsync(IFormFile file)
         {
             try
             {
-                var bankAccountInformations = await GetBankAccountsInformationFromFileAsync(file);
+                var bankAccountsInformation = await GetBankAccountsInformationFromFileAsync(file);
 
-                var invalidAccounts = _fileAccountValidator.GetInvalidAccounts(bankAccountInformations);
+                var invalidAccounts = _fileAccountValidator.GetInvalidAccounts(bankAccountsInformation);
 
                 return invalidAccounts;
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
         }
 
-        private static async Task<List<string>> GetBankAccountsInformationFromFileAsync(IFormFile file)
+        private async Task<List<string>> GetBankAccountsInformationFromFileAsync(IFormFile file)
         {
             var bankAccountsInformation = new List<string>();
 
@@ -39,7 +39,7 @@ namespace AccountBusinessLayer.Helpers
                 {
                     var bankAccountUserLine = await reader.ReadLineAsync();
 
-                    if (string.IsNullOrEmpty(bankAccountUserLine))
+                    if (string.IsNullOrWhiteSpace(bankAccountUserLine))
                     {
                         continue;
                     }

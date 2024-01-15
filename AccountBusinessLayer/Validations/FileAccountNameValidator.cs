@@ -5,7 +5,7 @@ namespace AccountBusinessLayer.Validations
 {
     public class FileAccountNameValidator : IFileAccountNameValidator
     {
-        public bool FirstNameContainsOnlyAlphabeticCharacters(string accountName)
+        public bool NameContainsOnlyAlphabeticCharacters(string accountName)
         {
             var pattern = "^[A-Za-z]+$";
 
