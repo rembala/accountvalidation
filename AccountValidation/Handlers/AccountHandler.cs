@@ -8,10 +8,12 @@ namespace AccountPresentationLayer.Handlers
     public class AccountHandler : IAccountHandler
     {
         private readonly IFileAccountHelper _fileAccountHelper;
+        private readonly ILogger<AccountHandler> _logger;
 
-        public AccountHandler(IFileAccountHelper fileAccountHelper)
+        public AccountHandler(IFileAccountHelper fileAccountHelper, ILogger<AccountHandler> logger)
         {
             _fileAccountHelper = fileAccountHelper;
+            _logger = logger;
         }
 
         public async Task<AccountResponse> HandleAccountRequestAsync(AccountRequest accountRequest)
@@ -22,9 +24,9 @@ namespace AccountPresentationLayer.Handlers
 
                 return new AccountResponse { FileValid = !invalidAccounts.Any(), invalidLines = invalidAccounts };
             }
-			catch
+			catch (Exception ex)
 			{
-
+                _logger.Log(LogLevel.Error, $"Unexpected error occured, {ex.Message}");
 				throw;
 			}
         }

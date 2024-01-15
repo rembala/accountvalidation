@@ -9,12 +9,10 @@ namespace AccountValidation.Controllers
     [Route("[controller]")]
     public class AccountController : ControllerBase
     {
-        private readonly ILogger<AccountController> _logger;
         private readonly IAccountHandler _accountHandler;
 
-        public AccountController(ILogger<AccountController> logger, IAccountHandler accountHandler)
+        public AccountController( IAccountHandler accountHandler)
         {
-            _logger = logger;
             _accountHandler = accountHandler;
         }
 

@@ -7,5 +7,8 @@ namespace AccountBusinessLayer.Common.Constants
         public const string NameIsUpperCase = "Name is uppercase";
         public const string NumberMustBeSevenOrEight = "Account number must be 7 or 8 + 'p'";
         public const string NumberMustStartWithThreeOrFour = "Valid account number must start with a digit 3 or 4";
+
+        public const string AccountNumber = "Account number";
+        public const string AccountName = "Account name";
     }
 }

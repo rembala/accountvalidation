@@ -15,18 +15,13 @@ namespace AccountBusinessLayer.Helpers
 
         public async Task<List<string>> GetInvalidAccountsAsync(IFormFile file)
         {
-            try
-            {
-                var bankAccountsInformation = await GetBankAccountsInformationFromFileAsync(file);
+            ThrowAnExceptionIfFileIsNull(file);
 
-                var invalidAccounts = _fileAccountValidator.GetInvalidAccounts(bankAccountsInformation);
+            var bankAccountsInformation = await GetBankAccountsInformationFromFileAsync(file);
 
-                return invalidAccounts;
-            }
-            catch 
-            {
-                throw;
-            }
+            var invalidAccounts = _fileAccountValidator.GetInvalidAccounts(bankAccountsInformation);
+
+            return invalidAccounts;
         }
 
         private async Task<List<string>> GetBankAccountsInformationFromFileAsync(IFormFile file)
@@ -37,18 +32,26 @@ namespace AccountBusinessLayer.Helpers
             {
                 while (reader.Peek() >= 0)
                 {
-                    var bankAccountUserLine = await reader.ReadLineAsync();
+                    var bankAccountInformationLine = await reader.ReadLineAsync();
 
-                    if (string.IsNullOrWhiteSpace(bankAccountUserLine))
+                    if (string.IsNullOrEmpty(bankAccountInformationLine))
                     {
                         continue;
                     }
 
-                    bankAccountsInformation.Add(bankAccountUserLine);
+                    bankAccountsInformation.Add(bankAccountInformationLine);
                 }
             }
 
             return bankAccountsInformation;
+        }
+
+        private void ThrowAnExceptionIfFileIsNull(IFormFile file)
+        {
+            if (file == null)
+            {
+                throw new ArgumentException("File cannot be null");
+            }
         }
     }
 }

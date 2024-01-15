@@ -1,4 +1,5 @@
-﻿using AccountBusinessLayer.Common.Interfaces;
+﻿using AccountBusinessLayer.Common.Constants;
+using AccountBusinessLayer.Common.Interfaces;
 using AccountBusinessLayer.Validations.Interfaces;
 using System.Text;
 
@@ -21,58 +22,52 @@ namespace AccountBusinessLayer.Validations
 
             var accountNumber = splittedBySpaceBankAccount[1];
 
-            bool nameAccountHasErrors, accountNumberIsCorrect, accountInitialNumberIsCorrect;
+            var accountValidatationResult = _measureTimeSpanForAccountValidation.GetAccountValidationResultWithMeasurements(accountName, accountNumber);
 
-            var measuredAccountValidatationTimeSpan = _measureTimeSpanForAccountValidation.GetMeasureTimeSpanForAccountValidation(
-                accountName, accountNumber, out nameAccountHasErrors, out accountNumberIsCorrect, out accountInitialNumberIsCorrect);
+            var fastestValidation = _measureTimeSpanForAccountValidation.GetFastestAccountValidation(accountValidatationResult.timeSpanByValidation);
 
-            var fastestValidation = _measureTimeSpanForAccountValidation.GetFastestAccountValidation(measuredAccountValidatationTimeSpan);
-            var slowestValidation = _measureTimeSpanForAccountValidation.GetSlowestAccountValidation(measuredAccountValidatationTimeSpan);
+            var slowestValidation = _measureTimeSpanForAccountValidation.GetSlowestAccountValidation(accountValidatationResult.timeSpanByValidation);
 
-            DisplayBankAccountMeasureTimes(bankAccount, fastestValidation, slowestValidation);
+            DisplayBankAccountMeasuredTimes(bankAccount, fastestValidation, slowestValidation);
 
-            var finalErrorMessage = GetErrorMessageBasedOnAccountValidation(nameAccountHasErrors, accountNumberIsCorrect, accountInitialNumberIsCorrect);
+            var finalErrorMessage = GetErrorMessageBasedOnAccountValidation(accountValidatationResult.accountNameHasErrors, accountValidatationResult.accountNumberHasErrors);
 
             return finalErrorMessage;
         }
 
-        private void DisplayBankAccountMeasureTimes(string bankAccount, KeyValuePair<string, TimeSpan> fastestValidation, KeyValuePair<string, TimeSpan> slowestValidation)
+        private void DisplayBankAccountMeasuredTimes(string bankAccount, KeyValuePair<string, TimeSpan> fastestValidation, KeyValuePair<string, TimeSpan> slowestValidation)
         {
             Console.WriteLine($"Fastest validation is when {fastestValidation.Key} for `{bankAccount}`");
 
             Console.WriteLine($"Slowest validation is when {slowestValidation.Key} for `{bankAccount}`");
         }
 
-        private string GetErrorMessageBasedOnAccountValidation(bool nameAccountHasErrors, bool accountNumberIsCorrect, bool accountInitialNumberIsCorrect)
+        private string GetErrorMessageBasedOnAccountValidation(bool accountNameHasErrors, bool accountNumberHasErrors)
         {
-            var accountNumberText = "Account number";
+            var accountNumberText = AccountValidatorConstants.AccountNumber;
 
             var messageErrorBuilder = new StringBuilder();
 
-            var accountNumberHasErrors = !accountNumberIsCorrect || !accountInitialNumberIsCorrect;
-
-            if (nameAccountHasErrors)
+            if (accountNameHasErrors)
             {
-                //TODO:
-                // Place constants somewhere else
-                const string accountNameText = "Account name";
+                const string accountNameText = AccountValidatorConstants.AccountName;
 
                 messageErrorBuilder.Append(accountNameText);
             }
 
             if (accountNumberHasErrors)
             {
-                if (nameAccountHasErrors)
+                if (accountNameHasErrors)
                 {
-                    var replacement = "a";
-                    accountNumberText = $",{string.Concat(replacement, accountNumberText.Substring(1))}";
+                    accountNumberText = $",{string.Concat("a", accountNumberText.Substring(1))}";
                 }
 
                 messageErrorBuilder.Append(accountNumberText);
             }
 
-            var finalErrorMessage = messageErrorBuilder.Length > 0 ? $"{messageErrorBuilder.ToString()} - not valid for" :
-                string.Empty;
+            var finalErrorMessage = messageErrorBuilder.Length > 0 
+                ? $"{messageErrorBuilder.ToString()} - not valid for" 
+                : string.Empty;
 
             return finalErrorMessage;
         }

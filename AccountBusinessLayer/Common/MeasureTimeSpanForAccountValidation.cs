@@ -17,7 +17,8 @@ namespace AccountBusinessLayer.Common
             _fileAccountNameValidator = fileAccountNameValidator;
         }
 
-        public Dictionary<string, TimeSpan> GetMeasureTimeSpanForAccountValidation(string accountName, string accountNumber, out bool nameAccountHasErrors, out bool accountNumberIsCorrect, out bool accountInitialNumberIsCorrect)
+        public (bool accountNameHasErrors, bool accountNumberHasErrors, Dictionary<string, TimeSpan> timeSpanByValidation)
+            GetAccountValidationResultWithMeasurements(string accountName, string accountNumber)
         {
             var timeSpanByValidation = new Dictionary<string, TimeSpan>();
 
@@ -51,7 +52,10 @@ namespace AccountBusinessLayer.Common
 
             timeSpanByValidation.Add(AccountValidatorConstants.NameIsUpperCase, firstNameIsUppercaseTimeSpan.Elapsed);
 
-            nameAccountHasErrors = !firstNameContainsAlphabeticCharacters || !firstNameIsUpperCase;
+            var nameAccountHasErrors = !firstNameContainsAlphabeticCharacters || !firstNameIsUpperCase;
+
+            bool accountNumberIsCorrect;
+
             var accountNumberIsCorrectTimeSpan = Stopwatch.StartNew();
 
             try
@@ -64,6 +68,8 @@ namespace AccountBusinessLayer.Common
             }
 
             timeSpanByValidation.Add(AccountValidatorConstants.NumberMustBeSevenOrEight, accountNumberIsCorrectTimeSpan.Elapsed);
+
+            bool accountInitialNumberIsCorrect;
 
             var accountInitialNumberTimeSpan = Stopwatch.StartNew();
 
@@ -78,7 +84,9 @@ namespace AccountBusinessLayer.Common
 
             timeSpanByValidation.Add(AccountValidatorConstants.NumberMustStartWithThreeOrFour, accountInitialNumberTimeSpan.Elapsed);
 
-            return timeSpanByValidation;
+            var accountNumberHasErrors = !accountNumberIsCorrect || !accountInitialNumberIsCorrect;
+
+            return (nameAccountHasErrors, accountNumberHasErrors, timeSpanByValidation);
         }
 
         public KeyValuePair<string, TimeSpan> GetSlowestAccountValidation(Dictionary<string, TimeSpan> measuredValidatationTimeSpan)

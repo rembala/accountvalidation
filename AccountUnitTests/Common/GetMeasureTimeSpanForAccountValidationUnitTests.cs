@@ -47,19 +47,13 @@ namespace AccountUnitTests.Common
                 _fileAccountNameValidatorMock.Object
             );
 
-            var nameAccountHasErrors = false;
-            var accountNumberIsCorrect = false;
-            var accountInitialNumberIsCorrect = false;
-
-            measureTimeSpanForAccountValidation.GetMeasureTimeSpanForAccountValidation(
-                accountName, accountNumber, out nameAccountHasErrors, out accountNumberIsCorrect, out accountInitialNumberIsCorrect);
+            measureTimeSpanForAccountValidation.GetAccountValidationResultWithMeasurements(accountName, accountNumber);
 
             var measureTimeSpanAccountValidator = new MeasureTimeSpanForAccountValidation(_fileAccountNumberValidatorMock.Object, _fileAccountNameValidatorMock.Object);
 
-            var result = measureTimeSpanAccountValidator
-                .GetMeasureTimeSpanForAccountValidation(accountName, accountNumber, out nameAccountHasErrors, out accountNumberIsCorrect, out accountInitialNumberIsCorrect);
+            var result = measureTimeSpanAccountValidator.GetAccountValidationResultWithMeasurements(accountName, accountNumber);
 
-            foreach (var key in result.Keys)
+            foreach (var key in result.timeSpanByValidation.Keys)
             {
                 Assert.Contains(key, expectedBankAccountValidationKeys);
             }

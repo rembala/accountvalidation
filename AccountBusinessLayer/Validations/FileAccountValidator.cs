@@ -1,5 +1,4 @@
 ﻿using AccountBusinessLayer.Validations.Interfaces;
-using System.Text;
 
 namespace AccountBusinessLayer.Validations
 {
@@ -14,7 +13,7 @@ namespace AccountBusinessLayer.Validations
 
         public List<string> GetInvalidAccounts(List<string> bankAccountsInformation)
         {
-            var messageBuilder = new List<string>();
+            var errorMessageBuilder = new List<string>();
 
             for (int incrementor = 0; incrementor < bankAccountsInformation.Count; incrementor++)
             {
@@ -26,11 +25,11 @@ namespace AccountBusinessLayer.Validations
                 {
                     var errorMessage = @$"{accountErrorMessage} {incrementor + 1} line `{bankAccount}`";
 
-                    messageBuilder.Add(errorMessage);
+                    errorMessageBuilder.Add(errorMessage);
                 }
             }
 
-            return messageBuilder;
+            return errorMessageBuilder;
         }
     }
 }

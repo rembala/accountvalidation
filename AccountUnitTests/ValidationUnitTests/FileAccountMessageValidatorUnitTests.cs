@@ -19,18 +19,14 @@ namespace AccountUnitTests.ValidationUnitTests
                 "Rose 329a982"
             };
 
-            bool nameAccountHasErrors = true;
-            bool accountNumberIsCorrect = true;
-            bool accountInitialNumberIsCorrect = true;
-
             string bankAccount = "Thomas 32999921";
 
             _measureTimeSpanForAccountValidation
                 .Setup(method =>
-                    method.GetMeasureTimeSpanForAccountValidation(
-                        It.IsAny<string>(), It.IsAny<string>(), out nameAccountHasErrors, out accountNumberIsCorrect, out accountInitialNumberIsCorrect)
+                    method.GetAccountValidationResultWithMeasurements(
+                        It.IsAny<string>(), It.IsAny<string>())
                     )
-                .Returns(new Dictionary<string, TimeSpan> ());
+                .Returns(() => (true, false, new Dictionary<string, TimeSpan>()));
 
             _measureTimeSpanForAccountValidation
                 .Setup(method =>
@@ -59,18 +55,14 @@ namespace AccountUnitTests.ValidationUnitTests
                 "Rose 329a982"
             };
 
-            bool nameAccountHasErrors = false;
-            bool accountNumberIsCorrect = false;
-            bool accountInitialNumberIsCorrect = true;
-
             string bankAccount = "Thomas 32999921";
 
             _measureTimeSpanForAccountValidation
                 .Setup(method =>
-                    method.GetMeasureTimeSpanForAccountValidation(
-                        It.IsAny<string>(), It.IsAny<string>(), out nameAccountHasErrors, out accountNumberIsCorrect, out accountInitialNumberIsCorrect)
+                    method.GetAccountValidationResultWithMeasurements(
+                        It.IsAny<string>(), It.IsAny<string>())
                     )
-                .Returns(new Dictionary<string, TimeSpan>());
+                .Returns(() => (false, true, new Dictionary<string, TimeSpan>()));
 
             _measureTimeSpanForAccountValidation
                 .Setup(method =>
@@ -99,18 +91,14 @@ namespace AccountUnitTests.ValidationUnitTests
                 "Rose 329a982"
             };
 
-            bool nameAccountHasErrors = false;
-            bool accountNumberIsCorrect = true;
-            bool accountInitialNumberIsCorrect = false;
-
             string bankAccount = "Thomas 32999921";
 
             _measureTimeSpanForAccountValidation
                 .Setup(method =>
-                    method.GetMeasureTimeSpanForAccountValidation(
-                        It.IsAny<string>(), It.IsAny<string>(), out nameAccountHasErrors, out accountNumberIsCorrect, out accountInitialNumberIsCorrect)
+                    method.GetAccountValidationResultWithMeasurements(
+                        It.IsAny<string>(), It.IsAny<string>())
                     )
-                .Returns(new Dictionary<string, TimeSpan>());
+                .Returns(() => (false, true, new Dictionary<string, TimeSpan>()));
 
             _measureTimeSpanForAccountValidation
                 .Setup(method =>
@@ -139,18 +127,14 @@ namespace AccountUnitTests.ValidationUnitTests
                 "Rose 329a982"
             };
 
-            bool nameAccountHasErrors = true;
-            bool accountNumberIsCorrect = false;
-            bool accountInitialNumberIsCorrect = false;
-
             string bankAccount = "Thomas 32999921";
 
             _measureTimeSpanForAccountValidation
                 .Setup(method =>
-                    method.GetMeasureTimeSpanForAccountValidation(
-                        It.IsAny<string>(), It.IsAny<string>(), out nameAccountHasErrors, out accountNumberIsCorrect, out accountInitialNumberIsCorrect)
+                    method.GetAccountValidationResultWithMeasurements(
+                        It.IsAny<string>(), It.IsAny<string>())
                     )
-                .Returns(new Dictionary<string, TimeSpan>());
+                .Returns(() => (true, true, new Dictionary<string, TimeSpan>()));
 
             _measureTimeSpanForAccountValidation
                 .Setup(method =>

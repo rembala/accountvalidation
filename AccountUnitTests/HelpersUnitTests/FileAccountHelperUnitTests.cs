@@ -56,7 +56,7 @@ namespace AccountUnitTests.Helpers
 
             var fileAccountHelper = new FileAccountHelper(_fileAccountHelperMock.Object);
 
-            await Assert.ThrowsAsync<NullReferenceException>(() => fileAccountHelper.GetInvalidAccountsAsync(file));
+            await Assert.ThrowsAsync<ArgumentException>(() => fileAccountHelper.GetInvalidAccountsAsync(file));
         }
 
         [Fact]
