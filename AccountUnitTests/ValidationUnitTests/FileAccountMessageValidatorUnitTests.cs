@@ -12,14 +12,7 @@ namespace AccountUnitTests.ValidationUnitTests
         [Fact]
         public void GetErrorMessageIfAccountIsInvalid_NameAccountHasError_ReturnsErrorMessage()
         {
-            var bankAccountInformations = new List<string> {
-                "Thomas 32999921",
-                "Richard 3293982",
-                "XAEA-12 8293982",
-                "Rose 329a982"
-            };
-
-            string bankAccount = "Thomas 32999921";
+            string bankAccount = "thomas 32999921";
 
             _measureTimeSpanForAccountValidation
                 .Setup(method =>
@@ -48,14 +41,7 @@ namespace AccountUnitTests.ValidationUnitTests
         [Fact]
         public void GetErrorMessageIfAccountIsInvalid_AccountNumberIsNotCorrect_ReturnsErrorMessage()
         {
-            var bankAccountInformations = new List<string> {
-                "Thomas 32999921",
-                "Richard 3293982",
-                "XAEA-12 8293982",
-                "Rose 329a982"
-            };
-
-            string bankAccount = "Thomas 32999921";
+            string bankAccount = "Thomas 329999213#";
 
             _measureTimeSpanForAccountValidation
                 .Setup(method =>
@@ -84,14 +70,7 @@ namespace AccountUnitTests.ValidationUnitTests
         [Fact]
         public void GetErrorMessageIfAccountIsInvalid_AccountInitialNumberIsNotCorrect_ReturnsErrorMessage()
         {
-            var bankAccountInformations = new List<string> {
-                "Thomas 32999921",
-                "Richard 3293982",
-                "XAEA-12 8293982",
-                "Rose 329a982"
-            };
-
-            string bankAccount = "Thomas 32999921";
+            string bankAccount = "Thomas 132999921";
 
             _measureTimeSpanForAccountValidation
                 .Setup(method =>
@@ -120,14 +99,7 @@ namespace AccountUnitTests.ValidationUnitTests
         [Fact]
         public void GetErrorMessageIfAccountIsInvalid_AccountNumberAndNameIsNotCorrect_ReturnsErrorMessage()
         {
-            var bankAccountInformations = new List<string> {
-                "Thomas 32999921",
-                "Richard 3293982",
-                "XAEA-12 8293982",
-                "Rose 329a982"
-            };
-
-            string bankAccount = "Thomas 32999921";
+            string bankAccount = "aThomas 232999921";
 
             _measureTimeSpanForAccountValidation
                 .Setup(method =>

@@ -11,7 +11,7 @@ namespace AccountValidation.Controllers
     {
         private readonly IAccountHandler _accountHandler;
 
-        public AccountController( IAccountHandler accountHandler)
+        public AccountController(IAccountHandler accountHandler)
         {
             _accountHandler = accountHandler;
         }

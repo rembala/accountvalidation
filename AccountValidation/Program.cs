@@ -16,13 +16,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IFileAccountHelper, FileAccountHelper>();
-builder.Services.AddScoped<IAccountHandler, AccountHandler>();
-builder.Services.AddScoped<IFileAccountValidator, FileAccountValidator>();
-builder.Services.AddScoped<IFileAccountNumberValidator, FileAccountNumberValidator>();
-builder.Services.AddScoped<IFileAccountNameValidator, FileAccountNameValidator>();
-builder.Services.AddScoped<IFileAccountMessageValidator, FileAccountMessageValidator>();
-builder.Services.AddScoped<IMeasureTimeSpanForAccountValidation, MeasureTimeSpanForAccountValidation>();
+RegisterDependencies(builder);
 
 var app = builder.Build();
 
@@ -38,3 +32,14 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+static void RegisterDependencies(WebApplicationBuilder builder)
+{
+    builder.Services.AddScoped<IFileAccountHelper, FileAccountHelper>();
+    builder.Services.AddScoped<IAccountHandler, AccountHandler>();
+    builder.Services.AddScoped<IFileAccountValidator, FileAccountValidator>();
+    builder.Services.AddScoped<IFileAccountNumberValidator, FileAccountNumberValidator>();
+    builder.Services.AddScoped<IFileAccountNameValidator, FileAccountNameValidator>();
+    builder.Services.AddScoped<IFileAccountMessageValidator, FileAccountMessageValidator>();
+    builder.Services.AddScoped<IMeasureTimeSpanForAccountValidation, MeasureTimeSpanForAccountValidation>();
+}

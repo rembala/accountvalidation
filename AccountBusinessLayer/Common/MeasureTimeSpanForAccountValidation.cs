@@ -22,37 +22,37 @@ namespace AccountBusinessLayer.Common
         {
             var timeSpanByValidation = new Dictionary<string, TimeSpan>();
 
-            bool firstNameContainsAlphabeticCharacters;
+            bool accountNameContainsAlphabeticCharacters;
 
-            var firstNameAlphabeticCharactersStopWatch = Stopwatch.StartNew();
-
-            try
-            {
-                firstNameContainsAlphabeticCharacters = _fileAccountNameValidator.NameContainsOnlyAlphabeticCharacters(accountName);
-            }
-            finally
-            {
-                firstNameAlphabeticCharactersStopWatch.Stop();
-            }
-
-            timeSpanByValidation.Add(AccountValidatorConstants.NameContainsOnlyAlphabeticalCharacters, firstNameAlphabeticCharactersStopWatch.Elapsed);
-
-            bool firstNameIsUpperCase;
-
-            var firstNameIsUppercaseTimeSpan = Stopwatch.StartNew();
+            var accountNameAlphabeticCharactersStopWatch = Stopwatch.StartNew();
 
             try
             {
-                firstNameIsUpperCase = _fileAccountNameValidator.FirstNameIsUppercase(accountName);
+                accountNameContainsAlphabeticCharacters = _fileAccountNameValidator.NameContainsOnlyAlphabeticCharacters(accountName);
             }
             finally
             {
-                firstNameIsUppercaseTimeSpan.Stop();
+                accountNameAlphabeticCharactersStopWatch.Stop();
             }
 
-            timeSpanByValidation.Add(AccountValidatorConstants.NameIsUpperCase, firstNameIsUppercaseTimeSpan.Elapsed);
+            timeSpanByValidation.Add(AccountValidatorConstants.NameContainsOnlyAlphabeticalCharacters, accountNameAlphabeticCharactersStopWatch.Elapsed);
 
-            var nameAccountHasErrors = !firstNameContainsAlphabeticCharacters || !firstNameIsUpperCase;
+            bool accountNameIsUpperCase;
+
+            var accountNameIsUppercaseTimeSpan = Stopwatch.StartNew();
+
+            try
+            {
+                accountNameIsUpperCase = _fileAccountNameValidator.FirstNameIsUppercase(accountName);
+            }
+            finally
+            {
+                accountNameIsUppercaseTimeSpan.Stop();
+            }
+
+            timeSpanByValidation.Add(AccountValidatorConstants.NameIsUpperCase, accountNameIsUppercaseTimeSpan.Elapsed);
+
+            var nameAccountHasErrors = !accountNameContainsAlphabeticCharacters || !accountNameIsUpperCase;
 
             bool accountNumberIsCorrect;
 

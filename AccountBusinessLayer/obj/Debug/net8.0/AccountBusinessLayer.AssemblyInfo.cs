@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AccountBusinessLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c8490ae5b531fafae0ca73d48624b304ef74e39b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad381eb75423893e97de96f7ccb35c095807f4c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("AccountBusinessLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AccountBusinessLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

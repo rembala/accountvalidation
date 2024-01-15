@@ -13,6 +13,11 @@ namespace AccountUnitTests.ValidationUnitTests
         [InlineData("Bob", true)]
         [InlineData("michael", true)]
         [InlineData("Rob", true)]
+        [InlineData("aAEA#", false)]
+        [InlineData("aAEA.", false)]
+        [InlineData("aAEA@", false)]
+        [InlineData("aAEA*", false)]
+        [InlineData("aAEA5", false)]
         public void NameContainsOnlyAlphabeticCharacters_AccountNameOnlyAlphabeticalTestCases_ReturnsAppropriateResult(string bankAccountName, bool expectedResult)
         {
             var fileAccountNameValidator = new FileAccountNameValidator();

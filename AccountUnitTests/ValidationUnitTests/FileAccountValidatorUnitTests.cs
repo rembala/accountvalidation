@@ -6,8 +6,7 @@ namespace AccountUnitTests.ValidationUnitTests
 {
     public class FileAccountValidatorUnitTests
     {
-        private Mock<IFileAccountMessageValidator> _fileAccountMessageValidatorMock =
-            new Mock<IFileAccountMessageValidator>(MockBehavior.Strict);
+        private Mock<IFileAccountMessageValidator> _fileAccountMessageValidatorMock = new Mock<IFileAccountMessageValidator>(MockBehavior.Strict);
 
         [Fact]
         public void GetInvalidAccounts_AccountErrorMessageIsNotEmoty_ReturnsPopulatedErrorMessages() {

@@ -7,14 +7,12 @@ namespace AccountUnitTests.Common
 {
     public class GetMeasureTimeSpanForAccountValidationUnitTests
     {
-        private Mock<IFileAccountNumberValidator> _fileAccountNumberValidatorMock =
-            new Mock<IFileAccountNumberValidator>(MockBehavior.Strict);
+        private Mock<IFileAccountNumberValidator> _fileAccountNumberValidatorMock = new Mock<IFileAccountNumberValidator>(MockBehavior.Strict);
 
-        private Mock<IFileAccountNameValidator> _fileAccountNameValidatorMock =
-            new Mock<IFileAccountNameValidator>(MockBehavior.Strict);
+        private Mock<IFileAccountNameValidator> _fileAccountNameValidatorMock = new Mock<IFileAccountNameValidator>(MockBehavior.Strict);
 
         [Fact]
-        public void GetMeasureTimeSpanForAccountValidation_MeasureAccountValidationShouldMatch_ReturnsMeasuredTimeSpanAccounts()
+        public void GetAccountValidationResultWithMeasurements_MeasureAccountValidationShouldMatch_ReturnsMeasuredValidationByTimeSpans()
         {
             var expectedBankAccountValidationKeys = new List<string> {
                 AccountValidatorConstants.NameContainsOnlyAlphabeticalCharacters,
@@ -77,7 +75,7 @@ namespace AccountUnitTests.Common
         }
 
         [Fact]
-        public void GetFastestAccountValidation_ThomasValidatoinIsFastest_ShouldReturnThomas()
+        public void GetFastestAccountValidation_ThomasValidationIsFastest_ShouldReturnThomas()
         {
             var accountValidationTimeSpanByAccount = new Dictionary<string, TimeSpan> {
                 { "Thomas", new TimeSpan(0,0, 12) },

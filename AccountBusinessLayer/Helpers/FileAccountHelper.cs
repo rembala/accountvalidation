@@ -34,7 +34,7 @@ namespace AccountBusinessLayer.Helpers
                 {
                     var bankAccountInformationLine = await reader.ReadLineAsync();
 
-                    if (string.IsNullOrEmpty(bankAccountInformationLine))
+                    if (string.IsNullOrWhiteSpace(bankAccountInformationLine))
                     {
                         continue;
                     }
