@@ -10,7 +10,7 @@ namespace AccountUnitTests.ValidationUnitTests
             new Mock<IMeasureTimeSpanForAccountValidation>(MockBehavior.Strict);
 
         [Fact]
-        public void GetErrorMessageIfAccountIsInvalid_NameAccountHasError_ReturnsErrorMessage()
+        public void GetErrorMessageIfAccountIsInvalid_NameAccountHasError_ShouldReturnErrorMessage()
         {
             string bankAccount = "thomas 32999921";
 
@@ -39,7 +39,7 @@ namespace AccountUnitTests.ValidationUnitTests
         }
 
         [Fact]
-        public void GetErrorMessageIfAccountIsInvalid_AccountNumberIsNotCorrect_ReturnsErrorMessage()
+        public void GetErrorMessageIfAccountIsInvalid_AccountNumberIsNotCorrect_ShouldReturnErrorMessage()
         {
             string bankAccount = "Thomas 329999213#";
 
@@ -68,7 +68,7 @@ namespace AccountUnitTests.ValidationUnitTests
         }
 
         [Fact]
-        public void GetErrorMessageIfAccountIsInvalid_AccountInitialNumberIsNotCorrect_ReturnsErrorMessage()
+        public void GetErrorMessageIfAccountIsInvalid_AccountInitialNumberIsNotCorrect_ShouldReturnErrorMessage()
         {
             string bankAccount = "Thomas 132999921";
 
@@ -97,7 +97,7 @@ namespace AccountUnitTests.ValidationUnitTests
         }
 
         [Fact]
-        public void GetErrorMessageIfAccountIsInvalid_AccountNumberAndNameIsNotCorrect_ReturnsErrorMessage()
+        public void GetErrorMessageIfAccountIsInvalid_AccountNumberAndNameIsNotCorrect_ShouldReturnErrorMessage()
         {
             string bankAccount = "aThomas 232999921";
 

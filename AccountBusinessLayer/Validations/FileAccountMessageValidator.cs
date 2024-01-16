@@ -50,9 +50,7 @@ namespace AccountBusinessLayer.Validations
 
             if (accountNameHasErrors)
             {
-                const string accountNameText = AccountValidatorConstants.AccountName;
-
-                messageErrorBuilder.Append(accountNameText);
+                messageErrorBuilder.Append(AccountValidatorConstants.AccountName);
             }
 
             if (accountNumberHasErrors)

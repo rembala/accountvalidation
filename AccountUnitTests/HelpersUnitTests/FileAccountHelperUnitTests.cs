@@ -11,7 +11,7 @@ namespace AccountUnitTests.Helpers
         private Mock<IFileAccountValidator> _fileAccountHelperMock = new Mock<IFileAccountValidator>(MockBehavior.Strict);
 
         [Fact]
-        public async Task GetInvalidAccountsAsync_FileIsValid_ReturnsInvalidAccount()
+        public async Task GetInvalidAccountsAsync_FileIsValid_ShouldReturnInvalidAccount()
         {
             var invalidAccount = "XAEA-12 8293982";
 
@@ -25,13 +25,15 @@ namespace AccountUnitTests.Helpers
 
             var writer = new StreamWriter(stream);
 
+            const string Name = "id_from_form";
+
             writer.Write(fileData);
 
             writer.Flush();
 
             stream.Position = 0;
 
-            var file = new FormFile(stream, 0, stream.Length, "id_from_form", fileName);
+            var file = new FormFile(stream, 0, stream.Length, Name, fileName);
 
             _fileAccountHelperMock
                 .Setup(method => method
@@ -60,7 +62,7 @@ namespace AccountUnitTests.Helpers
         }
 
         [Fact]
-        public async Task GetInvalidAccountsAsync_FileIsValid_With_Empty_Spaces_ReturnsInvalidAccount()
+        public async Task GetInvalidAccountsAsync_FileIsValid_With_Empty_Spaces_ShouldReturnInvalidAccount()
         {
             var invalidAccount = "XAEA-12 8293982";
 
@@ -69,6 +71,8 @@ namespace AccountUnitTests.Helpers
             var invalidAccounts = new List<string> { invalidAccount };
 
             var fileName = "userAccounts.txt";
+
+            const string Name = "id_from_form";
 
             var stream = new MemoryStream();
 
@@ -80,7 +84,7 @@ namespace AccountUnitTests.Helpers
 
             stream.Position = 0;
 
-            var file = new FormFile(stream, 0, stream.Length, "id_from_form", fileName);
+            var file = new FormFile(stream, 0, stream.Length, Name, fileName);
 
             _fileAccountHelperMock
                 .Setup(method => method

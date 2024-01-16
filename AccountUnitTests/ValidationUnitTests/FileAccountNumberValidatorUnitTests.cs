@@ -1,5 +1,4 @@
 ﻿using AccountBusinessLayer.Validations;
-using Moq;
 
 namespace AccountUnitTests.ValidationUnitTests
 {
@@ -19,7 +18,7 @@ namespace AccountUnitTests.ValidationUnitTests
 
             var result = fileAccountNumberValidator.IsAccountNumberCountIsCorrect(bankAccountNumber);
 
-           Assert.Equal(expectedResult, result);
+            Assert.Equal(expectedResult, result);
         }
 
         [Theory]

@@ -11,16 +11,13 @@ namespace AccountUnitTests.Common
 
         private Mock<IFileAccountNameValidator> _fileAccountNameValidatorMock = new Mock<IFileAccountNameValidator>(MockBehavior.Strict);
 
-        [Fact]
-        public void GetAccountValidationResultWithMeasurements_MeasureAccountValidationShouldMatch_ReturnsMeasuredValidationByTimeSpans()
+        [Theory]
+        [InlineData(AccountValidatorConstants.NameContainsOnlyAlphabeticalCharacters)]
+        [InlineData(AccountValidatorConstants.NameIsUpperCase)]
+        [InlineData(AccountValidatorConstants.NumberMustBeSevenOrEight)]
+        [InlineData(AccountValidatorConstants.NumberMustStartWithThreeOrFour)]
+        public void GetAccountValidationResultWithMeasurements_MeasureAccountValidationShouldMatch_ShouldReturnMeasuredValidationByTimeSpans(string bankAccountTimeSpanKey)
         {
-            var expectedBankAccountValidationKeys = new List<string> {
-                AccountValidatorConstants.NameContainsOnlyAlphabeticalCharacters,
-                AccountValidatorConstants.NameIsUpperCase,
-                AccountValidatorConstants.NumberMustBeSevenOrEight,
-                AccountValidatorConstants.NumberMustStartWithThreeOrFour
-            };
-
             var accountName = "Thomas";
             var accountNumber = "32999921";
 
@@ -51,10 +48,7 @@ namespace AccountUnitTests.Common
 
             var result = measureTimeSpanAccountValidator.GetAccountValidationResultWithMeasurements(accountName, accountNumber);
 
-            foreach (var key in result.timeSpanByValidation.Keys)
-            {
-                Assert.Contains(key, expectedBankAccountValidationKeys);
-            }
+            Assert.Contains(bankAccountTimeSpanKey, result.timeSpanByValidation.Keys);
         }
 
         [Fact]
